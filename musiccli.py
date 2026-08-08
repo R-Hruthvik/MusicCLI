@@ -1171,6 +1171,4 @@ class CLIFlow:
         self.auto_play = auto_play
     
     def handle_outcome(self, outcome):
-        if outcome == 'quit': return False
-        if outcome == 'new_search': return False
-        return True
+        return outcome not in ('quit', 'new_search')
