@@ -1077,11 +1077,12 @@ def main():
             continue
         if query.lower() in ('q', 'quit', 'exit'):
             break
-                try:
-                    idx = int(choice) - 1
-                except ValueError:
-                    print(f"  {colorize('Invalid command or number', Color.RED)}\n")
-                    continue
+        # Selection block starts here
+        try:
+            idx = int(choice) - 1
+        except ValueError:
+            print(f"  {colorize('Invalid command or number', Color.RED)}\n")
+            continue
             if not (0 <= idx < len(results)):
                 print(f"  {colorize('Invalid number', Color.RED)}\n")
                 continue
