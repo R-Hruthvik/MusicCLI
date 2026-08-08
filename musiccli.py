@@ -1165,3 +1165,12 @@ def run_visualizer(session, visual_on):
         print('\n'.join(frame))
         elapsed += 0.1; time.sleep(0.05)
     sys.stdout.write(CLEAR)
+
+class CLIFlow:
+    def __init__(self, auto_play):
+        self.auto_play = auto_play
+    
+    def handle_outcome(self, outcome):
+        if outcome == 'quit': return False
+        if outcome == 'new_search': return False
+        return True
