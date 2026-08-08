@@ -1088,6 +1088,11 @@ def main():
                 continue
 
             session = PlaybackSession(results, start_index=idx, radio=radio_pref)
+                outcome = run_playback(session, visual_on, has_renderer)
+                if not flow.handle_outcome(outcome):
+                    if outcome == "new_search": print(CLEAR); break
+                    return
+                print(CLEAR)
             outcome = run_playback(session, visual_on, has_renderer)
             if outcome == 'quit':
                 return
