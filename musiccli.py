@@ -1077,7 +1077,6 @@ def main():
             continue
         if query.lower() in ('q', 'quit', 'exit'):
             break
-            else:
                 try:
                     idx = int(choice) - 1
                 except ValueError:
