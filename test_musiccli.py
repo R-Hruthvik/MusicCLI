@@ -8,8 +8,8 @@ import subprocess
 from collections import deque
 from unittest import mock
 
-import musiccli as m
-from musiccli import Track, PlaybackSession
+import foundation.musiccli as m
+from foundation.musiccli import Track, PlaybackSession
 
 
 def T(title, artist='Artist', dur='3:00', vid='id', url=None):
@@ -252,11 +252,13 @@ class TestRadioVariety(unittest.TestCase):
         self.assertEqual(len(result), 0)
 
     def test_absorb_prefers_new_artists(self):
-        v = m.RadioVariety(seen=set(), recent=deque(), artist_last={}, artist_count={}, pos=0)
+        # artist_count={'x': 1} mirrors a real session where X has played before
+        # (remember() increments artist_count) and Y is a brand-new artist.
+        v = m.RadioVariety(seen=set(), recent=deque(), artist_last={}, artist_count={'x': 1}, pos=0)
         repeat = T('Repeat', artist='X', vid='r')
         fresh = T('Fresh', artist='Y', vid='f')
         result = v.absorb([repeat, fresh])
-        # fresh (Y) should queue before repeat (X) since Y is not in artist_count
+        # fresh (Y) should queue before repeat (X) since Y has no play count yet
         self.assertEqual(result[0].artist, 'Y')
         self.assertEqual(result[-1].artist, 'X')
 
@@ -349,6 +351,74 @@ class TestPlaybackSession(unittest.TestCase):
         s.remember(s.current())
         nxt = s.advance()
         self.assertEqual(nxt.artist_key(), 'other')   # discovery broke the single-artist run
+
+
+class TestDiscoveryDial(unittest.TestCase):
+    """Discovery dial: session state, transport bias, and the dominated gate."""
+
+    def test_dial_cycle_order_and_snapshot(self):
+        s = PlaybackSession([T('A')], start_index=0)
+        self.assertEqual(s.snapshot()['dial'], 'balanced')
+        self.assertEqual(s.cycle_dial(), 'familiar')
+        self.assertEqual(s.cycle_dial(), 'discover')
+        self.assertEqual(s.cycle_dial(), 'balanced')
+        self.assertEqual(s.snapshot()['dial'], 'balanced')
+
+    def test_dial_passed_into_fetcher_ctx(self):
+        seen = {}
+        def ff(seed, ctx):
+            seen.update(ctx)
+            return []
+        s = PlaybackSession([T('A')], start_index=0, radio=True, fetcher=ff)
+        s.remember(s.current())
+        s.cycle_dial()                       # familiar
+        s.advance()
+        self.assertEqual(seen.get('dial'), 'familiar')
+
+    def test_discover_uses_mood_seed(self):
+        seed = T('Hit', artist='Singer', vid='h1')
+        captured = {}
+        def fake_search(query, max_results=8):
+            captured['q'] = query
+            return [T('Found', artist='Zed', vid='z1')]
+        with mock.patch.object(m, 'search_youtube', fake_search):
+            out = m.fetch_radio_tracks(seed, {'dial': 'discover', 'max': 8})
+        self.assertIn(captured['q'], m._DISCOVERY_QUERIES)
+        self.assertEqual(out[0].title, 'Found')
+
+    def test_familiar_stays_near_artist_no_discovery(self):
+        seed = T('Hit', artist='Singer', vid='h1')
+        mix_calls, search_q = [], []
+        def fake_run(urls, max_results):
+            mix_calls.append(urls)
+            return []
+        def fake_search(query, max_results=8):
+            search_q.append(query)
+            return [T('Found', artist='Singer', vid='z1')]
+        with mock.patch.object(m, '_run_ytdlp', fake_run), \
+             mock.patch.object(m, 'search_youtube', fake_search):
+            out = m.fetch_radio_tracks(seed, {'dial': 'familiar', 'max': 8})
+        self.assertTrue(any('list=RD' in '|'.join(u) for u in mix_calls))
+        self.assertNotIn(search_q[0], m._DISCOVERY_QUERIES)  # no mood walk-away
+        self.assertEqual(out[0].artist, 'Singer')
+
+    def test_familiar_skips_dominated_discovery(self):
+        def ff(seed, ctx):
+            if ctx.get('discovery'):
+                return [T('D1', artist='Other', vid='d1')]
+            return [T('S1', artist='Same', vid='s1'), T('S2', artist='Same', vid='s2')]
+        s = PlaybackSession([T('start', artist='start', vid='st')], start_index=0,
+                            radio=True, fetcher=ff)
+        s.remember(s.current())
+        s.cycle_dial()                       # familiar: commit to the artist
+        nxt = s.advance()
+        self.assertIn(nxt.artist, ('Same', 'start'))   # no discovery pass ran
+
+    def test_dial_status_text(self):
+        for dial, label in (('balanced', 'Balanced'),
+                            ('familiar', 'Familiar'),
+                            ('discover', 'Discover')):
+            self.assertIn(label, m.dial_status_text(dial))
 
 
 def radio_seed_seed(track):

@@ -1,0 +1,13 @@
+{
+  "name": "Codebase Exploration",
+  "category": "Researching Issues",
+  "description": "Understand unfamiliar code, map dependencies, and document structure",
+  "agents": [
+    { "name": "Codebase Onboarding Engineer", "file": "codebase-onboarding-engineer.md", "role": "Map codebase", "permission": "read" },
+    { "name": "Software Architect", "file": "software-architect.md", "role": "Identify patterns", "permission": "read" },
+    { "name": "Code Reviewer", "file": "code-reviewer.md", "role": "Code quality patterns", "permission": "read" },
+    { "name": "Evidence Collector", "file": "evidence-collector.md", "role": "Document visually", "permission": "read" },
+    { "name": "Technical Writer", "file": "technical-writer.md", "role": "Write docs", "permission": "read" }
+  ],
+  "outputPattern": "docs/agent-results/exploration-{date}.md"
+}

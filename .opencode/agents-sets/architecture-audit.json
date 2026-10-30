@@ -1,0 +1,14 @@
+{
+  "name": "Architecture Audit",
+  "category": "Finding Issues",
+  "description": "Evaluate system design, coupling, and architectural health",
+  "agents": [
+    { "name": "Software Architect", "file": "software-architect.md", "role": "Evaluate patterns", "permission": "read" },
+    { "name": "Code Reviewer", "file": "code-reviewer.md", "role": "Check architecture adherence", "permission": "read" },
+    { "name": "Senior Developer", "file": "senior-developer.md", "role": "Assess maintainability", "permission": "read" },
+    { "name": "Codebase Onboarding Engineer", "file": "codebase-onboarding-engineer.md", "role": "Map dependencies", "permission": "read" },
+    { "name": "Reality Checker", "file": "reality-checker.md", "role": "Validate claims", "permission": "read" },
+    { "name": "Technical Writer", "file": "technical-writer.md", "role": "Document decisions", "permission": "read" }
+  ],
+  "outputPattern": "docs/agent-results/arch-audit-{date}.md"
+}

@@ -1,0 +1,14 @@
+{
+  "name": "Bug Fix",
+  "category": "Fixing Issues",
+  "description": "Implement fixes for identified bugs",
+  "agents": [
+    { "name": "Senior Developer", "file": "senior-developer.md", "role": "Implement fix", "permission": "write" },
+    { "name": "Frontend Developer", "file": "frontend-developer.md", "role": "Fix UI bugs", "permission": "write" },
+    { "name": "Minimal Change Engineer", "file": "minimal-change-engineer.md", "role": "Ensure minimal fix", "permission": "write" },
+    { "name": "Code Reviewer", "file": "code-reviewer.md", "role": "Review fix", "permission": "read" },
+    { "name": "Performance Benchmarker", "file": "performance-benchmarker.md", "role": "Verify perf", "permission": "read" },
+    { "name": "Test Results Analyzer", "file": "test-results-analyzer.md", "role": "Verify testing", "permission": "read" }
+  ],
+  "outputPattern": "docs/agent-results/fixes-{date}.md"
+}

@@ -1,0 +1,14 @@
+{
+  "name": "Architecture Research",
+  "category": "Researching Issues",
+  "description": "Research architectural patterns and design approaches",
+  "agents": [
+    { "name": "Software Architect", "file": "software-architect.md", "role": "Research patterns", "permission": "read" },
+    { "name": "Senior Developer", "file": "senior-developer.md", "role": "Implementation patterns", "permission": "read" },
+    { "name": "Codebase Onboarding Engineer", "file": "codebase-onboarding-engineer.md", "role": "Map current arch", "permission": "read" },
+    { "name": "Multi-Agent Systems Architect", "file": "multi-agent-systems-architect.md", "role": "Agent patterns", "permission": "read" },
+    { "name": "Reality Checker", "file": "reality-checker.md", "role": "Validate research", "permission": "read" },
+    { "name": "Technical Writer", "file": "technical-writer.md", "role": "Document research", "permission": "read" }
+  ],
+  "outputPattern": "docs/agent-results/arch-research-{date}.md"
+}

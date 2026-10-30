@@ -1,0 +1,13 @@
+{
+  "name": "UI Fix",
+  "category": "Fixing Issues",
+  "description": "Fix interface issues, styling bugs, and layout problems",
+  "agents": [
+    { "name": "Frontend Developer", "file": "frontend-developer.md", "role": "Implement UI fixes", "permission": "write" },
+    { "name": "Accessibility Auditor", "file": "accessibility-auditor.md", "role": "Maintain a11y", "permission": "read" },
+    { "name": "Evidence Collector", "file": "evidence-collector.md", "role": "Before/after screenshots", "permission": "read" },
+    { "name": "Code Reviewer", "file": "code-reviewer.md", "role": "Review UI changes", "permission": "read" },
+    { "name": "Reality Checker", "file": "reality-checker.md", "role": "Validate fixes", "permission": "read" }
+  ],
+  "outputPattern": "docs/agent-results/ui-fixes-{date}.md"
+}

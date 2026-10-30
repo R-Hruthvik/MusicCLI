@@ -1,0 +1,13 @@
+{
+  "name": "Test Coverage Audit",
+  "category": "Finding Issues",
+  "description": "Find untested code paths and test quality issues",
+  "agents": [
+    { "name": "Test Results Analyzer", "file": "test-results-analyzer.md", "role": "Analyze coverage", "permission": "read" },
+    { "name": "Code Reviewer", "file": "code-reviewer.md", "role": "Check test quality", "permission": "read" },
+    { "name": "Reality Checker", "file": "reality-checker.md", "role": "Validate results", "permission": "read" },
+    { "name": "Evidence Collector", "file": "evidence-collector.md", "role": "Document gaps", "permission": "read" },
+    { "name": "Technical Writer", "file": "technical-writer.md", "role": "Document recommendations", "permission": "read" }
+  ],
+  "outputPattern": "docs/agent-results/test-audit-{date}.md"
+}

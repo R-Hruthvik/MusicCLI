@@ -1,0 +1,12 @@
+{
+  "name": "Documentation Fix",
+  "category": "Fixing Issues",
+  "description": "Update and improve documentation",
+  "agents": [
+    { "name": "Technical Writer", "file": "technical-writer.md", "role": "Write/update docs", "permission": "write" },
+    { "name": "Codebase Onboarding Engineer", "file": "codebase-onboarding-engineer.md", "role": "Codebase context", "permission": "read" },
+    { "name": "Code Reviewer", "file": "code-reviewer.md", "role": "Review accuracy", "permission": "read" },
+    { "name": "Reality Checker", "file": "reality-checker.md", "role": "Validate docs", "permission": "read" }
+  ],
+  "outputPattern": "docs/agent-results/doc-fixes-{date}.md"
+}

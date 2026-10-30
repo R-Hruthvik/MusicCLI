@@ -1,0 +1,13 @@
+{
+  "name": "Technology Research",
+  "category": "Researching Issues",
+  "description": "Evaluate libraries, frameworks, and tools",
+  "agents": [
+    { "name": "Tool Evaluator", "file": "tool-evaluator.md", "role": "Evaluate options", "permission": "read" },
+    { "name": "Software Architect", "file": "software-architect.md", "role": "Architecture fit", "permission": "read" },
+    { "name": "Performance Benchmarker", "file": "performance-benchmarker.md", "role": "Perf characteristics", "permission": "read" },
+    { "name": "Reality Checker", "file": "reality-checker.md", "role": "Validate claims", "permission": "read" },
+    { "name": "Technical Writer", "file": "technical-writer.md", "role": "Document comparison", "permission": "read" }
+  ],
+  "outputPattern": "docs/agent-results/tech-research-{date}.md"
+}

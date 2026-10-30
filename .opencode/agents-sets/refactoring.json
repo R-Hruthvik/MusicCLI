@@ -1,0 +1,15 @@
+{
+  "name": "Refactoring",
+  "category": "Fixing Issues",
+  "description": "Improve code structure without changing behavior",
+  "agents": [
+    { "name": "Senior Developer", "file": "senior-developer.md", "role": "Implement refactoring", "permission": "write" },
+    { "name": "Software Architect", "file": "software-architect.md", "role": "Guide architecture", "permission": "read" },
+    { "name": "Minimal Change Engineer", "file": "minimal-change-engineer.md", "role": "Ensure incremental changes", "permission": "read" },
+    { "name": "Code Reviewer", "file": "code-reviewer.md", "role": "Review quality", "permission": "read" },
+    { "name": "Performance Benchmarker", "file": "performance-benchmarker.md", "role": "Verify no regression", "permission": "read" },
+    { "name": "Test Results Analyzer", "file": "test-results-analyzer.md", "role": "Verify tests pass", "permission": "read" },
+    { "name": "Git Workflow Master", "file": "git-workflow-master.md", "role": "Manage commits", "permission": "read" }
+  ],
+  "outputPattern": "docs/agent-results/refactor-{date}.md"
+}

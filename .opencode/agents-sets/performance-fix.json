@@ -1,0 +1,14 @@
+{
+  "name": "Performance Fix",
+  "category": "Fixing Issues",
+  "description": "Implement performance optimizations",
+  "agents": [
+    { "name": "Performance Benchmarker", "file": "performance-benchmarker.md", "role": "Implement optimizations", "permission": "write" },
+    { "name": "Senior Developer", "file": "senior-developer.md", "role": "Code optimizations", "permission": "write" },
+    { "name": "Database Optimizer", "file": "database-optimizer.md", "role": "Query optimization", "permission": "write" },
+    { "name": "Code Reviewer", "file": "code-reviewer.md", "role": "Review changes", "permission": "read" },
+    { "name": "Test Results Analyzer", "file": "test-results-analyzer.md", "role": "Verify behavior", "permission": "read" },
+    { "name": "Reality Checker", "file": "reality-checker.md", "role": "Validate improvements", "permission": "read" }
+  ],
+  "outputPattern": "docs/agent-results/perf-fixes-{date}.md"
+}

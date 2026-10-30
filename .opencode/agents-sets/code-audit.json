@@ -1,0 +1,16 @@
+{
+  "name": "Code Audit",
+  "category": "Finding Issues",
+  "description": "Comprehensive code quality review to find bugs, anti-patterns, and quality issues",
+  "agents": [
+    { "name": "Code Reviewer", "file": "code-reviewer.md", "role": "Primary reviewer", "permission": "read" },
+    { "name": "Performance Benchmarker", "file": "performance-benchmarker.md", "role": "Performance analysis", "permission": "read" },
+    { "name": "Software Architect", "file": "software-architect.md", "role": "Architecture evaluation", "permission": "read" },
+    { "name": "Evidence Collector", "file": "evidence-collector.md", "role": "Document findings", "permission": "read" },
+    { "name": "Minimal Change Engineer", "file": "minimal-change-engineer.md", "role": "Minimal fix assessment", "permission": "read" },
+    { "name": "Test Results Analyzer", "file": "test-results-analyzer.md", "role": "Test coverage check", "permission": "read" },
+    { "name": "Reality Checker", "file": "reality-checker.md", "role": "Validate findings", "permission": "read" },
+    { "name": "Codebase Onboarding Engineer", "file": "codebase-onboarding-engineer.md", "role": "Codebase context", "permission": "read" }
+  ],
+  "outputPattern": "docs/agent-results/audit-{date}.md"
+}

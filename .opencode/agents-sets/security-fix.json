@@ -1,0 +1,14 @@
+{
+  "name": "Security Fix",
+  "category": "Fixing Issues",
+  "description": "Patch security vulnerabilities",
+  "agents": [
+    { "name": "Senior Developer", "file": "senior-developer.md", "role": "Implement patches", "permission": "write" },
+    { "name": "Backend Architect", "file": "backend-architect.md", "role": "Guide secure patterns", "permission": "read" },
+    { "name": "Code Reviewer", "file": "code-reviewer.md", "role": "Review fix", "permission": "read" },
+    { "name": "API Tester", "file": "api-tester.md", "role": "Test fix", "permission": "read" },
+    { "name": "Reality Checker", "file": "reality-checker.md", "role": "Validate fix", "permission": "read" },
+    { "name": "Technical Writer", "file": "technical-writer.md", "role": "Document changes", "permission": "read" }
+  ],
+  "outputPattern": "docs/agent-results/security-fixes-{date}.md"
+}

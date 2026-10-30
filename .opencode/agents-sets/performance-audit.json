@@ -1,0 +1,15 @@
+{
+  "name": "Performance Audit",
+  "category": "Finding Issues",
+  "description": "Find performance bottlenecks, memory leaks, and optimization opportunities",
+  "agents": [
+    { "name": "Performance Benchmarker", "file": "performance-benchmarker.md", "role": "Measure and profile", "permission": "read" },
+    { "name": "Code Reviewer", "file": "code-reviewer.md", "role": "Find N+1 queries, allocations", "permission": "read" },
+    { "name": "Software Architect", "file": "software-architect.md", "role": "Architecture perf trade-offs", "permission": "read" },
+    { "name": "Frontend Developer", "file": "frontend-developer.md", "role": "UI rendering perf", "permission": "read" },
+    { "name": "Backend Architect", "file": "backend-architect.md", "role": "Server-side perf", "permission": "read" },
+    { "name": "Database Optimizer", "file": "database-optimizer.md", "role": "Query performance", "permission": "read" },
+    { "name": "Evidence Collector", "file": "evidence-collector.md", "role": "Document metrics", "permission": "read" }
+  ],
+  "outputPattern": "docs/agent-results/perf-audit-{date}.md"
+}

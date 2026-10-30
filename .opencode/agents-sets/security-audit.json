@@ -1,0 +1,14 @@
+{
+  "name": "Security Audit",
+  "category": "Finding Issues",
+  "description": "Find security vulnerabilities, injection risks, and auth bypasses",
+  "agents": [
+    { "name": "Code Reviewer", "file": "code-reviewer.md", "role": "Find vulnerabilities", "permission": "read" },
+    { "name": "Backend Architect", "file": "backend-architect.md", "role": "Server-side security", "permission": "read" },
+    { "name": "API Tester", "file": "api-tester.md", "role": "Endpoint testing", "permission": "read" },
+    { "name": "Reality Checker", "file": "reality-checker.md", "role": "Validate findings", "permission": "read" },
+    { "name": "Evidence Collector", "file": "evidence-collector.md", "role": "Document issues", "permission": "read" },
+    { "name": "Technical Writer", "file": "technical-writer.md", "role": "Document recommendations", "permission": "read" }
+  ],
+  "outputPattern": "docs/agent-results/security-audit-{date}.md"
+}

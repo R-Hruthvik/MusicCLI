@@ -1,0 +1,15 @@
+{
+  "name": "UI/UX Audit",
+  "category": "Finding Issues",
+  "description": "Find interface issues, accessibility problems, and UX friction",
+  "agents": [
+    { "name": "Frontend Developer", "file": "frontend-developer.md", "role": "UI implementation review", "permission": "read" },
+    { "name": "Accessibility Auditor", "file": "accessibility-auditor.md", "role": "WCAG compliance", "permission": "read" },
+    { "name": "Evidence Collector", "file": "evidence-collector.md", "role": "Screenshot issues", "permission": "read" },
+    { "name": "Reality Checker", "file": "reality-checker.md", "role": "Validate UI claims", "permission": "read" },
+    { "name": "Performance Benchmarker", "file": "performance-benchmarker.md", "role": "UI rendering perf", "permission": "read" },
+    { "name": "Code Reviewer", "file": "code-reviewer.md", "role": "UI code quality", "permission": "read" },
+    { "name": "Technical Writer", "file": "technical-writer.md", "role": "Document recommendations", "permission": "read" }
+  ],
+  "outputPattern": "docs/agent-results/ui-audit-{date}.md"
+}

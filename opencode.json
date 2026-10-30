@@ -1,0 +1,13 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "musicly": {
+      "type": "local",
+      "command": ["python3", "-m", "mcp.server"],
+      "environment": {
+        "PYTHONPATH": "/home/hruthvik9487/Downloads/drive-download-20260807T051738Z-1-001/MusicCLI"
+      },
+      "enabled": true
+    }
+  }
+}

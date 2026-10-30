@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+*.egg-info/
+dist/
+build/
+
+# Markdown (keep only README.md)
+*.md
+!README.md
+
+# Misc
+nul
+*.tar.gz
+.DS_Store
+.env
+"><|end|><|start|> assistant to=write<|channel|>analysis <|constrain|>xml<|message|><rfl:parameter name="path">
+/home/hruthvik9487/Downloads/drive-download-20260807T051738Z-1-001/MusicCLI/README.md

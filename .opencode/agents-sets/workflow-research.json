@@ -1,0 +1,13 @@
+{
+  "name": "Workflow Research",
+  "category": "Researching Issues",
+  "description": "Research development workflows and process improvements",
+  "agents": [
+    { "name": "Workflow Optimizer", "file": "workflow-optimizer.md", "role": "Analyze workflows", "permission": "read" },
+    { "name": "Git Workflow Master", "file": "git-workflow-master.md", "role": "Branching evaluation", "permission": "read" },
+    { "name": "DevOps Automator", "file": "devops-automator.md", "role": "CI/CD evaluation", "permission": "read" },
+    { "name": "IT Service Manager", "file": "it-service-manager.md", "role": "Process maturity", "permission": "read" },
+    { "name": "Technical Writer", "file": "technical-writer.md", "role": "Document recommendations", "permission": "read" }
+  ],
+  "outputPattern": "docs/agent-results/workflow-research-{date}.md"
+}

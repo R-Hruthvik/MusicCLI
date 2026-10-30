@@ -1,0 +1,14 @@
+{
+  "name": "Feasibility Assessment",
+  "category": "Researching Issues",
+  "description": "Evaluate if a proposed solution is feasible",
+  "agents": [
+    { "name": "Software Architect", "file": "software-architect.md", "role": "Architectural feasibility", "permission": "read" },
+    { "name": "Senior Developer", "file": "senior-developer.md", "role": "Implementation complexity", "permission": "read" },
+    { "name": "Performance Benchmarker", "file": "performance-benchmarker.md", "role": "Performance impact", "permission": "read" },
+    { "name": "Reality Checker", "file": "reality-checker.md", "role": "Validate claims", "permission": "read" },
+    { "name": "Minimal Change Engineer", "file": "minimal-change-engineer.md", "role": "Suggest alternatives", "permission": "read" },
+    { "name": "Technical Writer", "file": "technical-writer.md", "role": "Document findings", "permission": "read" }
+  ],
+  "outputPattern": "docs/agent-results/feasibility-{date}.md"
+}

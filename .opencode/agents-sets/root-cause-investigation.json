@@ -1,0 +1,15 @@
+{
+  "name": "Root Cause Investigation",
+  "category": "Researching Issues",
+  "description": "Find the root cause of a bug or issue",
+  "agents": [
+    { "name": "Code Reviewer", "file": "code-reviewer.md", "role": "Trace code paths", "permission": "read" },
+    { "name": "Software Architect", "file": "software-architect.md", "role": "System-level causes", "permission": "read" },
+    { "name": "Performance Benchmarker", "file": "performance-benchmarker.md", "role": "Perf-related causes", "permission": "read" },
+    { "name": "Codebase Onboarding Engineer", "file": "codebase-onboarding-engineer.md", "role": "Map dependencies", "permission": "read" },
+    { "name": "Evidence Collector", "file": "evidence-collector.md", "role": "Document investigation", "permission": "read" },
+    { "name": "Reality Checker", "file": "reality-checker.md", "role": "Validate hypothesis", "permission": "read" },
+    { "name": "Test Results Analyzer", "file": "test-results-analyzer.md", "role": "Check test reveals", "permission": "read" }
+  ],
+  "outputPattern": "docs/agent-results/investigation-{date}.md"
+}

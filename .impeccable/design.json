@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-11T00:00:00Z",
+  "title": "Design System: MusicCLI",
+  "extensions": {
+    "colorMeta": {
+      "depot-amber": {
+        "role": "primary",
+        "displayName": "Depot Amber",
+        "canonical": "#ffaf00",
+        "tonalRamp": ["#2b1a00", "#402700", "#553400", "#6b4100", "#825000", "#9a6100", "#b27300", "#ffaf00", "#ffd68a"]
+      },
+      "depot-amber-dim": {
+        "role": "secondary",
+        "displayName": "Depot Amber Dim",
+        "canonical": "#d78700",
+        "tonalRamp": ["#221500", "#331f00", "#452a00", "#573400", "#6a3f00", "#7e4b00", "#935800", "#d78700", "#ffd68a"]
+      },
+      "matte-black": {
+        "role": "neutral",
+        "displayName": "Matte Black",
+        "canonical": "#000000",
+        "tonalRamp": ["#000000", "#0a0a0a", "#141414", "#1e1e1e", "#282828", "#333333", "#3d3d3d", "#4a4a4a"]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#e8e8e8",
+        "tonalRamp": ["#262626", "#3d3d3d", "#595959", "#737373", "#8f8f8f", "#b3b3b3", "#d0d0d0", "#e8e8e8", "#ffffff"]
+      },
+      "dim-ink": {
+        "role": "neutral",
+        "displayName": "Dim Ink",
+        "canonical": "#777777",
+        "tonalRamp": ["#1c1c1c", "#2b2b2b", "#3a3a3a", "#494949", "#585858", "#676767", "#777777", "#8f8f8f"]
+      },
+      "state-green": {
+        "role": "semantic",
+        "displayName": "State Green",
+        "canonical": "#8fff9f",
+        "tonalRamp": ["#0a1c10", "#10301a", "#174725", "#1e5f31", "#2a7c42", "#3f9d5a", "#8fff9f", "#d4ffe0"]
+      },
+      "state-red": {
+        "role": "semantic",
+        "displayName": "State Red",
+        "canonical": "#ff9b94",
+        "tonalRamp": ["#1f0a09", "#33100e", "#471714", "#5c1e1a", "#70261f", "#8d2f26", "#ff9b94", "#ffdedb"]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Monospace Display",
+        "purpose": "Spaced-caps wordmark and flapping board titles; amber, always ready to turn a cell."
+      },
+      "body": {
+        "displayName": "Monospace Body",
+        "purpose": "Departure rows, metadata, prompts; uppercase on the board, sentence case in the simple TUI."
+      },
+      "label": {
+        "displayName": "Monospace Label",
+        "purpose": "Board headers, stamps, and key chips; uppercase, dim or amber."
+      }
+    },
+    "motion": [
+      { "name": "flap-in", "value": "0.9s settle, 30ms cell stagger", "purpose": "Letters cycle then settle left-to-right when a departure updates or the board wakes." },
+      { "name": "stamp-blink", "value": "1s cycle", "purpose": "NOW DEPARTING / VISUALS OFF pulses calmly; the only blink in the world." },
+      { "name": "clock-tick", "value": "1s", "purpose": "The live clock in the board header and the search line." },
+      { "name": "board-scan", "value": "8s sweep", "purpose": "A single dot travels the title rule; the board refreshes, never a false duration." }
+    ],
+    "breakpoints": [
+      { "name": "board", "value": "cols >= 32 and rows >= 10" },
+      { "name": "fallback-card", "value": "cols < 32 or rows < 10" }
+    ]
+  },
+  "narrative": {
+    "northStar": "The Night Depot",
+    "overview": "A single departure board in a near-empty station at night. Every track is a departure; the queue is the timetable; the radio is a station that keeps routing you onward; a finished session is the last train gone. MusicCLI is that board: you arrive, you tell the agent where you are headed, the board seeks connections, and when the board is showing you a departure that is the song now playing.\n\nThe world is deliberately terminal-native: one fixed-width character grid is the only geometry, depth is drawn with dimming rather than glyph density, and every animation is a pure function of a session snapshot plus its own clock. The previous arcade-cabinet look was refused because a midnight depot needs one quiet board, not a carnival.\n\nState is honest signage: NOW DEPARTING while a track plays, VISUALS OFF when the board is powered down, LAST TRAIN DEPARTED when nothing is queued. One amber live column; dim ink everywhere else. Color never competes."
+  }
+}
